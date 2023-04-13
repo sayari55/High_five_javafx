@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/services/CategorieService.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/services/VeloService.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/gui/VelosController.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/services/IService.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/entities/Station.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/utils/DataSource.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/gui/categories.fxml</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/jfx/JFX.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/entities/Categorie.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/entities/Velo.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/gui/velos.fxml</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/services/StationService.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/JFX/src/gui/CategoriesController.java</file>
+        </group>
+    </open-files>
+</project-private>

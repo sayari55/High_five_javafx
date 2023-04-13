@@ -1,0 +1,136 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19 févr. 2023, 08:37:24
+    Author     : sassi
+*/
+
+.bg-form{
+    -fx-background-color:linear-gradient(to top right,#00561B
+,#CBE256
+
+);
+}
+.bg1-form{
+    -fx-background-color: linear-gradient(to top right,#8097db,#16525e);
+
+}
+.textfield{
+    -fx-background-color:transparent;
+    -fx-text-inner-color:#000000;
+    -fx-border-color:#f2deba;
+    -fx-border-width:0px 0px .4px 0px ;
+
+
+}
+.table-view {
+    -fx-background-color: #F0E2A3;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-column {
+    -fx-alignment: center-left;
+
+}
+
+.table-cell {
+    -fx-border-color: #3380FF;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #BBCDE5;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #BBCDE5;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #639FAB;
+    -fx-text-fill: white;
+}
+.textfield:focused{
+    -fx-border-color:#fb6363;
+    -fx-border-width:0px 0px 2px .0px;
+
+
+
+
+}
+.login-btn:hover{
+    -fx-background-color: linear-gradient(to top right, #ffffff, #f5f5f5);
+    -fx-text-fill: linear-gradient(to top right, #0e5e6f, #3a8891);
+    -fx-border-width: 3px;
+    -fx-border-color: linear-gradient(to top right, #0e5e6f, #3a8891);
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+
+}
+.create-btn:hover{
+    -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+
+    -fx-background-radius:8px;
+    -fx-text-fill:#fff;
+    -fx-font-size :14px;
+    -fx-cursor:hand;
+
+
+}
+.ajouter-btn:hover{
+    -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+
+    -fx-background-radius:8px;
+    -fx-text-fill:#fff;
+    -fx-font-size :14px;
+    -fx-cursor:hand;
+
+
+}
+.modifier-btn:hover{
+    -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+
+    -fx-background-radius:8px;
+    -fx-text-fill:#fff;
+    -fx-font-size :14px;
+    -fx-cursor:hand;
+
+
+}
+.supprimer-btn:hover{
+    -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+
+    -fx-background-radius:8px;
+    -fx-text-fill:#fff;
+    -fx-font-size :14px;
+    -fx-cursor:hand;
+
+
+}
+.afficher-btn:hover{
+    -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+
+    -fx-background-radius:8px;
+    -fx-text-fill:#fff;
+    -fx-font-size :14px;
+    -fx-cursor:hand;
+
+
+}
+.uplod-btn:hover{
+    -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+
+    -fx-background-radius:8px;
+    -fx-text-fill:#fff;
+    -fx-font-size :14px;
+    -fx-cursor:hand;
+
+
+}
+.hyperlink{-fx-underline:false;
+           -fx-text-fill:#fb6363;
+           -fx-border-color:transparent;
+           -fx-border-width:0px;
+}

@@ -122,6 +122,21 @@ edu.ecovelo.services.ReclamationService recService = new edu.ecovelo.services.Re
             alert.showAndWait();
             return;
         }
+     Date dateReclamation = selectedRec.getDate_reclamation();
+                String date1 = String.valueOf(dateReclamation);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate dateReclamation1 = LocalDate.parse(date1, formatter);
+                // Convert the date to a LocalDate object
+
+                LocalDate dateSysteme = LocalDate.now();
+                if (dateSysteme.isAfter(dateReclamation1)) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Erreur");
+                    alert.setHeaderText("La réclamation ne peut pas être modifiée");
+                    alert.setContentText("La date limite pour modifier la réclamation est dépassée");
+                    alert.showAndWait();
+                    return;
+                }
 
         // 3. Demander confirmation à l'utilisateur
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

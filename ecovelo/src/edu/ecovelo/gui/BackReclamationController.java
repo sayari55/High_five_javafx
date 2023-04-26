@@ -5,6 +5,9 @@
  */
 package edu.ecovelo.gui;
 
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import edu.ecovelo.entities.reclamation;
 import edu.ecovelo.services.ReclamationService;
 import java.net.URL;
@@ -20,7 +23,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import edu.ecovelo.gui.Ecovelo;
 import edu.ecovelo.services.ReponseService;
+import edu.ecovelo.utils.MyConnection;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -30,6 +41,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 /**
  * FXML Controller class
  *
@@ -61,12 +73,16 @@ public class BackReclamationController implements Initializable {
     private Button btnDelete;
     @FXML
     private TextField rech;
+    @FXML
+    private Button genererpdf;
+    private Connection conn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+         conn = MyConnection.getInstance().getCnx();
         id.setCellValueFactory(new PropertyValueFactory<>("id_reclamation"));
            nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -188,5 +204,45 @@ public class BackReclamationController implements Initializable {
                 alert.showAndWait();
             }
         }
+    }
+
+    @FXML
+    private void pdfcreate(ActionEvent event) {
+           com.itextpdf.text.Document document = new com.itextpdf.text.Document();
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("reclamation.pdf"));
+            document.open();
+            PdfPTable table = new PdfPTable(3); // 3 columns
+
+            // Add table headers
+            table.addCell("id_reclamation");
+            table.addCell("nom");
+            table.addCell("email");
+            conn = MyConnection.getInstance().getCnx();
+            // Add table rows from the database
+            String query = "SELECT * FROM reclamation";
+            ResultSet resultSet = conn.createStatement().executeQuery(query);
+            while (resultSet.next()) {
+                int id_reclamation = resultSet.getInt("id_reclamation");
+                String nom = resultSet.getString("nom");
+               String email = resultSet.getString("email");
+                table.addCell(Integer.toString(id_reclamation));   //ism les attribut ml base 
+                table.addCell(nom);
+                table.addCell(email);
+            }
+            document.add(table);
+            document.close();
+            JOptionPane.showMessageDialog(null, "Les données des reclamation ont été exportées dans le fichier reclamation.pdf");
+
+            // Open the generated PDF file
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().open(new File("reclamation.pdf"));
+            }
+        } catch (FileNotFoundException | DocumentException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erreur lors de l'exportation des données des reclamation : " + e.getMessage());
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erreur d'entrée/sortie : " + e.getMessage());
+        }
+        
     }
 }

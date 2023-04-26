@@ -12,7 +12,6 @@
       <TextField fx:id="text_email" layoutX="372.0" layoutY="154.0" />
       <TextField fx:id="text_sujet" layoutX="372.0" layoutY="208.0" />
       <TextField fx:id="text_description" layoutX="372.0" layoutY="267.0" />
-      <TextField fx:id="text_etat" layoutX="372.0" layoutY="321.0" />
       <Button fx:id="envoyer_reclamation" layoutX="642.0" layoutY="406.0" mnemonicParsing="false" onAction="#envoyer" stylesheets="@login.css" text="envoyer reclamation">
          <styleClass>
             <String fx:value="bg-form" />
@@ -22,7 +21,6 @@
       <Text layoutX="263.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
       <Text layoutX="263.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sujet" />
       <Text layoutX="263.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" />
-      <Text layoutX="263.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="etat" />
       <Button fx:id="MesReclamations" layoutX="276.0" layoutY="406.0" mnemonicParsing="false" onAction="#MesRec" prefHeight="31.0" prefWidth="188.0" stylesheets="@login.css" text="Mes Réclamations">
          <styleClass>
             <String fx:value="bg-form" />

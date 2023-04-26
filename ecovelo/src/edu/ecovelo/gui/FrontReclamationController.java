@@ -9,7 +9,9 @@ import edu.ecovelo.entities.reclamation;
 import edu.ecovelo.services.ReclamationService;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,10 +28,10 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author benza
+ * 
  */
 public class FrontReclamationController implements Initializable {
-
+  private static final List<String> MAUVAIS_MOTS = Arrays.asList("bd1", "bd2", "bd3");
     @FXML
     private TextField text_nom;
     @FXML
@@ -38,8 +40,7 @@ public class FrontReclamationController implements Initializable {
     private TextField text_sujet;
     @FXML
     private TextField text_description;
-    @FXML
-    private TextField text_etat;
+    
     @FXML
     private Button envoyer_reclamation;
     @FXML
@@ -56,7 +57,7 @@ public class FrontReclamationController implements Initializable {
     @FXML
     private void envoyer(ActionEvent event) {
          if (text_nom.getText().isEmpty() || text_email.getText().isEmpty() || text_sujet.getText().isEmpty()
-                || text_description.getText().isEmpty() || text_etat.getText().isEmpty()
+                || text_description.getText().isEmpty()
                 ) {
             // Afficher un message d'alerte
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -79,7 +80,17 @@ public class FrontReclamationController implements Initializable {
          String email = text_email.getText();
          String sujet = text_sujet.getText();
          String description = text_description.getText();
-         String etat = text_etat.getText();
+          for (String mauvaisMot : MAUVAIS_MOTS) {
+            if (description.toLowerCase().contains(mauvaisMot)) {
+              
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("La description contient des mots interdits");
+                alert.showAndWait();
+                return;
+            }
+        }
+         String etat = "en cours";
     
          reclamation rec = new reclamation(nom, email, sujet, description, etat);
           ReclamationService RecService = new ReclamationService();
@@ -88,7 +99,7 @@ public class FrontReclamationController implements Initializable {
         text_email.clear();
         text_sujet.clear();
         text_description.clear();
-        text_etat.clear();
+       
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText("reclamtion ajouté avec succès");

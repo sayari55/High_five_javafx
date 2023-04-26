@@ -42,5 +42,11 @@
             <Text fill="WHITE" layoutX="70.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" />
          </children>
       </AnchorPane>
+      <Button fx:id="genererpdf" layoutX="302.0" layoutY="405.0" mnemonicParsing="false" onAction="#pdfcreate" stylesheets="@login.css" text="PDF">
+         <styleClass>
+            <String fx:value="bg-form" />
+            <String fx:value="login-btn" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>

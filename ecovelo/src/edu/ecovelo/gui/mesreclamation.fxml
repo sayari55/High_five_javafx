@@ -22,7 +22,7 @@
         </columns>
       </TableView>
       <TextField fx:id="description_text" layoutX="453.0" layoutY="462.0" styleClass="textfield" stylesheets="@login.css" />
-      <Text layoutX="358.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" />
+      <Text layoutX="365.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" />
       <Button fx:id="retourner" layoutX="1118.0" layoutY="516.0" mnemonicParsing="false" onAction="#retournerfront" stylesheets="@login.css" text="retourner">
          <styleClass>
             <String fx:value="bg-form" />
@@ -38,5 +38,6 @@
             <Text fill="WHITE" layoutX="70.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" />
          </children>
       </AnchorPane>
+      <TextField fx:id="description_text" layoutX="320.0" layoutY="402.0" />
    </children>
 </AnchorPane>

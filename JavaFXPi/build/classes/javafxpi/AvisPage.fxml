@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxpi.AvisPageController">
+   <children>
+      <AnchorPane layoutX="-5.0" prefHeight="507.0" prefWidth="221.0" style="-fx-background-color: #373737;">
+         <children>
+            <AnchorPane layoutX="5.0" layoutY="-2.0" prefHeight="86.0" prefWidth="216.0" style="-fx-background-color: black;">
+               <children>
+                  <Label layoutX="70.0" layoutY="28.0" text="Eco Velo" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button fx:id="HomePagebutton" layoutX="81.0" layoutY="127.0" mnemonicParsing="false" onAction="#HomePageAction" text="Home" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0" />
+            <Button fx:id="userPagebutton" layoutX="22.0" layoutY="151.0" mnemonicParsing="false" onAction="#userPageAction" text="User Info" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="151.0" />
+            <Button layoutX="20.0" layoutY="202.0" mnemonicParsing="false" text="Review" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="202.0" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="216.0" layoutY="-2.0" prefHeight="86.0" prefWidth="684.0" style="-fx-background-color: black;">
+         <children>
+            <Label layoutX="604.0" layoutY="34.0" text="PlaceHolder" textFill="#fffdfd" />
+         </children>
+      </Pane>
+      <AnchorPane fx:id="myreviewSection" layoutX="217.0" layoutY="86.0" prefHeight="418.0" prefWidth="333.0">
+         <children>
+            <Label layoutX="30.0" layoutY="22.0" text="My Review" />
+            <Label layoutX="26.0" layoutY="90.0" text="Score :" />
+            <Label layoutX="24.0" layoutY="142.0" text="Description :" />
+            <Label fx:id="scorePlaceholder" layoutX="71.0" layoutY="91.0" text="PlaceHolder" />
+            <Label fx:id="descriptionPlaceholder" layoutX="118.0" layoutY="142.0" text="PlaceHolder" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="updateReviewSection" layoutX="567.0" layoutY="87.0" prefHeight="418.0" prefWidth="333.0">
+         <children>
+            <Label fx:id="reviewTitle" layoutX="30.0" layoutY="22.0" text="Update Review" />
+            <Label layoutX="26.0" layoutY="90.0" text="Score :" />
+            <TextField layoutX="115.0" layoutY="86.0" prefWidth="184.0" />
+            <Label layoutX="24.0" layoutY="142.0" text="Description :" />
+            <TextArea layoutX="114.0" layoutY="150.0" prefHeight="118.0" prefWidth="184.0" />
+            <Button fx:id="updateButton" layoutX="151.0" layoutY="322.0" mnemonicParsing="false" text="Update" />
+            <Button fx:id="addButton" layoutX="159.0" layoutY="291.0" mnemonicParsing="false" text="Add" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxpi.AdminReviewPageController">
+   <children>
+      <Pane layoutX="209.0" prefHeight="86.0" prefWidth="791.0" style="-fx-background-color: black;">
+         <children>
+            <Label fx:id="userNamePlaceholder" layoutX="604.0" layoutY="34.0" text="PlaceHolder" textFill="#fffdfd" />
+         </children>
+      </Pane>
+      <AnchorPane layoutX="-1.0" layoutY="1.0" prefHeight="500.0" prefWidth="216.0" style="-fx-background-color: #373737;">
+         <children>
+            <AnchorPane layoutX="1.0" layoutY="-2.0" prefHeight="86.0" prefWidth="216.0" style="-fx-background-color: black;">
+               <children>
+                  <Label layoutX="70.0" layoutY="28.0" text="Eco Velo" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button fx:id="userDashBtn" layoutX="33.0" layoutY="121.0" mnemonicParsing="false" onAction="#userDashBtnOnAction" prefHeight="26.0" prefWidth="147.0" text="User Dashboard" />
+            <Button layoutX="33.0" layoutY="171.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="147.0" text="Review Dashboard" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="216.0" layoutY="88.0" prefHeight="413.0" prefWidth="696.0">
+         <children>
+            <TableView fx:id="tableAvis" layoutX="137.0" layoutY="58.0" prefHeight="290.0" prefWidth="456.0">
+               <columns>
+                  <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="colUserId" prefWidth="75.0" text="User Id" />
+                  <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
+                  <TableColumn fx:id="colNote" prefWidth="75.0" text="Note" />
+                  <TableColumn fx:id="colEdit" prefWidth="75.0" text="Edit" />
+                  <TableColumn fx:id="colDelete" prefWidth="75.0" text="Delete" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

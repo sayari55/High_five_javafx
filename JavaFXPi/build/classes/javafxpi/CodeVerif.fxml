@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxpi.CodeVerifController">
+   <children>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #222322;">
+         <children>
+            <ImageView fx:id="brandingImageView" fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="192.0" text="Welcome" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="342.0" text="+21652653322" textFill="WHITE" />
+            <Label layoutX="53.0" layoutY="359.0" prefHeight="18.0" prefWidth="123.0" text="support@ecovelo.com" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="229.0" layoutY="-1.0" prefHeight="407.0" prefWidth="372.0">
+         <children>
+            <Label layoutX="155.0" layoutY="36.0" text="Security">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="85.0" prefHeight="80.0" prefWidth="303.0" text="An email with a verification code has been sent to you , please check your email." wrapText="true" />
+            <Label layoutX="141.0" layoutY="231.0" text="Verification code :" />
+            <Button fx:id="sendBtn" layoutX="167.0" layoutY="280.0" mnemonicParsing="false" onAction="#sendBtnOnAction" text="Send" />
+            <TextField fx:id="verificationCode" layoutX="110.0" layoutY="248.0" promptText="0000" />
+            <Label layoutX="168.0" layoutY="165.0" text="Email :" />
+            <TextField fx:id="emailInput" layoutX="106.0" layoutY="190.0" promptText="Email" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

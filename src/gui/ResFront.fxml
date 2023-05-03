@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResFrontController">
+   <children>
+      <Label alignment="CENTER" layoutX="424.0" layoutY="123.0" prefHeight="58.0" prefWidth="286.0" stylesheets="@login.css" text="Reserver votre velo" textFill="#1b1717">
+         <font>
+            <Font name="Constantia" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="192.0" layoutY="227.0" prefHeight="14.0" prefWidth="99.0" text="Date de debut">
+         <font>
+            <Font name="Constantia" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="192.0" layoutY="284.0" prefHeight="18.0" prefWidth="70.0" text="Date fin">
+         <font>
+            <Font name="Constantia" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="190.0" layoutY="342.0" prefHeight="18.0" prefWidth="70.0" text="Station" />
+      <ComboBox fx:id="station_loc" layoutX="287.0" layoutY="339.0" prefHeight="35.0" prefWidth="191.0" />
+      <DatePicker fx:id="date_fin" layoutX="291.0" layoutY="281.0" />
+      <DatePicker fx:id="date_debut" layoutX="291.0" layoutY="222.0" />
+      <Button fx:id="pb_ajout" layoutX="336.0" layoutY="399.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="30.0" prefWidth="88.0" styleClass="ajouter-btn" stylesheets="@login.css" text="ajouter" />
+      <TableView fx:id="affichage_res" layoutX="361.0" layoutY="581.0" onMouseClicked="#selection" prefHeight="200.0" prefWidth="437.0">
+         <columns>
+            <TableColumn fx:id="debutCol" prefWidth="125.60003662109375" text="Date debut" />
+            <TableColumn fx:id="finCol" prefWidth="164.79998779296875" text="Date fin" />
+            <TableColumn fx:id="stationCol" prefWidth="142.4000244140625" text="station" />
+         </columns>
+      </TableView>
+      <AnchorPane layoutX="-13.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label alignment="CENTER" layoutX="436.0" layoutY="500.0" prefHeight="58.0" prefWidth="286.0" stylesheets="@login.css" text="Mes reservations" textFill="#1b1717">
+         <font>
+            <Font name="Constantia" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="-1.0" layoutY="-3.0" prefHeight="1006.0" prefWidth="175.0" style="-fx-background-color: #454545;">
+         <children>
+            <Button fx:id="pb_reserver" layoutX="62.0" layoutY="166.0" mnemonicParsing="false" onAction="#reserver" styleClass="afficher-btn" stylesheets="@login.css" text="Reserver" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="116.0" prefWidth="1000.0" style="-fx-background-color: #000000;">
+         <children>
+            <Label layoutX="78.0" layoutY="41.0" prefHeight="35.0" prefWidth="138.0" text="Eco Velo" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="541.0" layoutY="194.0" prefHeight="241.0" prefWidth="6.0" style="-fx-background-color: #000000;" />
+      <DatePicker fx:id="mod_date_deb" layoutX="738.0" layoutY="214.0" styleClass="textfield" stylesheets="@login.css" />
+      <Label layoutX="605.0" layoutY="220.0" prefHeight="14.0" prefWidth="99.0" text="Date de debut">
+         <font>
+            <Font name="Constantia" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="605.0" layoutY="284.0" prefHeight="18.0" prefWidth="70.0" text="Date fin">
+         <font>
+            <Font name="Constantia" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="606.0" layoutY="342.0" prefHeight="18.0" prefWidth="70.0" text="Station" />
+      <DatePicker fx:id="mod_date_fin" layoutX="739.0" layoutY="280.0" styleClass="textfield" stylesheets="@login.css" />
+      <ComboBox fx:id="station_loc1" layoutX="728.0" layoutY="339.0" prefHeight="35.0" prefWidth="188.0" />
+      <Button fx:id="pb_modif" layoutX="717.0" layoutY="398.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="106.0" styleClass="modifier-btn" stylesheets="@login.css" text="Modifier" />
+   </children>
+</AnchorPane>

@@ -8,8 +8,10 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JFX.jar" size="23509" download="eager" />
+    <jar href="JFX.jar" size="1137803" download="eager" />
+    <jar href="lib\core-3.4.1.jar" size="539286" download="eager" />
     <jar href="lib\mysql-connector-j-8.0.32.jar" size="2480823" download="eager" />
+    <jar href="lib\pdfbox-app-3.0.0-RC1.jar" size="10451820" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JFX" >
     <param name="requiredFXVersion" value="8.0+"/>

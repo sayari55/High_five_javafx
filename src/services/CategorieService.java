@@ -1,6 +1,7 @@
 package services;
 
 import entities.Categorie;
+import entities.Velo;
 import utils.DataSource;
 
 import java.sql.*;
@@ -82,6 +83,31 @@ public class CategorieService implements IService<Categorie> {
         }
         return listCategories;
     }
+    
+    public List<Velo> getVelosByCategorie(Categorie categorie) {
+    List<Velo> listVelos = new ArrayList<>();
+    try {
+        String requete = "SELECT * FROM velo WHERE categorie_id = ?";
+        PreparedStatement stm = cnx.prepareStatement(requete);
+        stm.setInt(1, categorie.getId());
+        ResultSet rs = stm.executeQuery();
+        while (rs.next()) {
+            Velo v = new Velo(
+                    rs.getInt("id"),
+                    rs.getString("couleur"),
+                    rs.getString("etat"),
+                    rs.getInt("id_station"),
+                    rs.getInt("categorie_id"),
+                    rs.getString("image")
+            );
+            listVelos.add(v);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return listVelos;
+}
+
 
     public Categorie chercher(int id) {
         Categorie c = null;
@@ -103,4 +129,27 @@ public class CategorieService implements IService<Categorie> {
         }
         return c;
     }
+    
+    public List<Categorie> search(String searchKeyword) {
+    List<Categorie> listCategories = new ArrayList<>();
+    try {
+        String requete = "SELECT * FROM categorie WHERE nom LIKE ?";
+        PreparedStatement stm = cnx.prepareStatement(requete);
+        stm.setString(1, "%" + searchKeyword + "%");
+        ResultSet rs = stm.executeQuery();
+        while (rs.next()) {
+            Categorie c = new Categorie(
+                    rs.getInt("id"),
+                    rs.getString("nom"),
+                    rs.getString("description"),
+                    rs.getString("modele")
+            );
+            listCategories.add(c);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return listCategories;
+}
+
 }

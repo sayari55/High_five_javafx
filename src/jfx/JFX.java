@@ -25,7 +25,7 @@ public class JFX extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/velos.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/categories.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setTitle("Hello World!");

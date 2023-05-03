@@ -1,9 +1,11 @@
 package gui;
 
+import com.sun.javafx.charts.Legend;
+import com.sun.javafx.charts.Legend.LegendItem;
 import entities.Categorie;
-import entities.Velo;
+import java.io.File;
+import java.io.IOException;
 import services.CategorieService;
-import services.VeloService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,10 +14,30 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+
+
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
+
+
 
 public class CategoriesController implements Initializable {
 
@@ -36,6 +58,9 @@ public class CategoriesController implements Initializable {
 
     @FXML
     private TextField modele;
+    
+        @FXML
+    private TextField search;
 
     @FXML
     private TextField modele1;
@@ -48,12 +73,20 @@ public class CategoriesController implements Initializable {
 
     @FXML
     private TextField nom1;
+    
+        @FXML
+    private Pane pane;
+
 
     @FXML
     private TableColumn<?, ?> nomColumn;
 
     @FXML
     private TableView<Categorie> tableViewCategories;
+    
+        @FXML
+    private PieChart pie;
+
 
     @FXML
     void ajouter(ActionEvent event) {
@@ -194,5 +227,134 @@ public class CategoriesController implements Initializable {
         modeleColumn.setCellValueFactory(new PropertyValueFactory<>("modele"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         nomColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
+            List<Categorie> listCategories = categorieService.afficher();
+            
+            search.textProperty().addListener((observable, oldValue, newValue) -> {
+    List<Categorie> categories = categorieService.search(newValue);
+    tableViewCategories.setItems(FXCollections.observableList(categories));
+});
+
+            
+            
+
+// Create the legend
+Legend legend = new Legend();
+Random random = new Random();
+for (Categorie c : listCategories) {
+    int velosCount = categorieService.getVelosByCategorie(c).size();
+    String legendText = c.getNom() + " (" + velosCount + ")";
+    Color color = Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256),0);
+    LegendItem legendItem = new LegendItem(legendText, new Rectangle(10, 10, color));
+    legend.getItems().add(legendItem);
+}
+
+// Create the pie chart
+PieChart pie = new PieChart();
+ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+for (Categorie c : listCategories) {
+    int velosCount = categorieService.getVelosByCategorie(c).size();
+    pieChartData.add(new PieChart.Data(c.getNom(), velosCount));
+}
+pie.setData(pieChartData);
+
+// Add the pie chart and the legend to a pane
+pane.getChildren().addAll(pie, legend);
+
+// Add the pane to your scene
+//Scene scene = new Scene(pane);
+       
+
+}
+    
+        @FXML
+    void pdf(ActionEvent event) {
+        
+
+        try {
+            // Create a PDF document
+            PDDocument document = new PDDocument();
+            PDFont font = PDType0Font.load(document, new File("C:\\Users\\Lenovo\\Documents\\NetBeansProjects\\JFX\\src\\gui\\OpenSans-Bold.ttf"));
+            
+// Create a new page
+PDPage page = new PDPage();
+document.addPage(page);
+
+// Create a new table for the content
+PDPageContentStream contentStream = null;
+try {
+    contentStream = new PDPageContentStream(document, page);
+} catch (IOException ex) {
+    Logger.getLogger(CategoriesController.class.getName()).log(Level.SEVERE, null, ex);
+}
+float tableWidth = page.getMediaBox().getWidth() - (72 * 2); // Subtracting margins
+float yStartNewPage = page.getMediaBox().getHeight() - (72 * 2); // Subtracting margins
+boolean drawContent = true;
+float bottomMargin = 70;
+float yPosition = yStartNewPage;
+int rowsPerPage = 30;
+
+//TableView<YourObject> tableView = new TableView<>(); // Replace with your TableView object
+ObservableList<TableColumn<Categorie, ?>> columns = tableViewCategories.getColumns();
+int numberOfColumns = columns.size();
+
+// Calculate the column width
+float[] columnWidths = new float[numberOfColumns];
+for (int i = 0; i < numberOfColumns; i++) {
+    TableColumn<Categorie, ?> column = columns.get(i);
+    columnWidths[i] = (float) (column.getWidth() / tableWidth * 100);
+}
+
+String headers = "nom"+" # "+"description"+" # modele";
+    contentStream.beginText();
+    contentStream.setFont(font, 12);
+    
+        contentStream.newLineAtOffset((72 * 2) , yPosition);
+        contentStream.showText(headers);
+        contentStream.endText();
+
+yPosition -= 20;
+
+// Add table rows
+for (Categorie item : tableViewCategories.getItems()) {
+    // Check if we need to start a new page
+    if (yPosition <= bottomMargin) {
+        contentStream.close();
+        page = new PDPage();
+        document.addPage(page);
+        contentStream = new PDPageContentStream(document, page);
+        yPosition = yStartNewPage;
     }
+    
+    TableColumn <Categorie, ?> column1 = columns.get(1);
+    TableColumn <Categorie, ?> column2 = columns.get(2);
+    TableColumn <Categorie, ?> column3 = columns.get(3);
+    
+    String cellData = column1.getCellData(item).toString()+" # "+column2.getCellData(item).toString()+" # "+column3.getCellData(item).toString();
+    contentStream.beginText();
+    contentStream.setFont(font, 12);
+    
+        contentStream.newLineAtOffset((72 * 2) , yPosition);
+        contentStream.showText(cellData);
+        contentStream.endText();
+    // Add row data
+    
+
+    yPosition -= 20;
+}
+
+// Close the content stream and save the document
+contentStream.close();
+document.save("table.pdf");
+document.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(CategoriesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    
+    
+    
+    
 }

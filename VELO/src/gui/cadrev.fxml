@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="297.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadrevController">
+   <children>
+      <VBox fx:id="box_avis" alignment="CENTER" layoutX="-4.0" prefHeight="297.0" prefWidth="357.0" spacing="8.0" style="-fx-border-color: #bc9f1e; -fx-border-width: #bc9f1e;">
+         <children>
+            <Label fx:id="nom" alignment="CENTER" prefHeight="26.0" prefWidth="154.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="image_user" fitHeight="47.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Projet_Pidev_3A6/src/gui/image/6618280.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="type" alignment="CENTER" contentDisplay="CENTER" prefHeight="133.0" prefWidth="250.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Bell MT" size="12.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="250.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

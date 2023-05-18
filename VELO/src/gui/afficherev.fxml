@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherevController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: gris; -fx-border-color: #1e33ba; -fx-border-width: 5;">
+         <children>
+            <Label fx:id="factLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="89.0" prefWidth="545.0" style="&#10;                " text="Choisissez votre mode de don: en offrant un vélo ou en faisant un don financier directement." textFill="#171610" wrapText="true" />
+            <Button fx:id="ParArgentbtn" alignment="CENTER" contentDisplay="CENTER" onAction="#argent" prefHeight="37.0" prefWidth="136.0" style="&#10;                " text="Par Argent" textFill="#1e33ba" />
+            <Button fx:id="Parvelobtn" mnemonicParsing="false" prefHeight="37.0" prefWidth="138.0" text="Par vélo" textFill="#1e33ba" />
+            <Label graphicTextGap="5.0" textFill="#1530a1">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatisticsDonController">
+   <children>
+      <PieChart fx:id="StatsChart" layoutX="100.0" layoutY="125.0">
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </PieChart>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="69.0" prefWidth="750.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="110.0" prefHeight="23.0" prefWidth="726.0" style="-fx-graphic-text-gap: bc9f1e;" text="Statistiques pour toutes les dons :" textFill="#0a0a0a">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="358.0" layoutX="378.0" layoutY="61.0" startX="-362.0" stroke="#bc9f1e" strokeWidth="2.0" />
+            <Pane layoutX="-20.0" layoutY="-10.0" prefHeight="86.0" prefWidth="793.0" style="-fx-background-color: black;">
+               <children>
+                  <Label fx:id="userNamePlaceholder" layoutX="649.0" layoutY="35.0" prefHeight="17.0" prefWidth="149.0" textFill="#fffdfd" />
+                  <Label layoutX="67.0" layoutY="26.0" text="Eco Velo" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

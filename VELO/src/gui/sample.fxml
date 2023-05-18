@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SampleController">
+   <children>
+      <TextField fx:id="guess" layoutX="109.0" layoutY="197.0" onAction="#checkGuess" promptText="Make a guess">
+         <font>
+            <Font name="Bell MT" size="30.0" />
+         </font>
+      </TextField>
+      <Text layoutX="64.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faites une estimation entre 0 et 100." wrappingWidth="498.6484375">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                   Talaa trah !!" wrappingWidth="600.0">
+         <font>
+            <Font name="Bell MT Bold" size="37.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="upArrow" fitHeight="319.0" fitWidth="342.0" layoutX="135.0" layoutY="251.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../gui.image/png-clipart-arrow-arrow-logo-icon-yellow-arrow-up-angle-text-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="downArrow" fitHeight="299.0" fitWidth="342.0" layoutX="124.0" layoutY="284.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../gui.image/kisspng-arrow-clip-art-arrow-key-cliparts-5a8a6dcb963ee4.4716667215190215156154-removebg-preview.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="V_RESIZE" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="correct" fitHeight="319.0" fitWidth="342.0" layoutX="129.0" layoutY="264.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../gui.image/téléchargement-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="529.0" layoutY="573.0" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="53.0" text="Reset" textFill="#0a0a0a" />
+      <Text fx:id="guessCounterText" layoutX="205.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimations: 0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Pane layoutX="-10.0" prefHeight="86.0" prefWidth="659.0" style="-fx-background-color: black;">
+         <children>
+            <Label fx:id="userNamePlaceholder" layoutX="649.0" layoutY="35.0" prefHeight="17.0" prefWidth="149.0" textFill="#fffdfd" />
+            <Label layoutX="67.0" layoutY="26.0" text="Eco Velo" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
